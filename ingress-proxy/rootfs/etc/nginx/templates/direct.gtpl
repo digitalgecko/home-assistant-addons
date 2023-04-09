@@ -12,7 +12,7 @@ index index.html;
         if ( $query_string = "service=sonarr" ) { return 419; }
         if ( $query_string = "service=radarr" ) { return 420; }
 
-        root /www/
+        root /www/;
     }
 
 
