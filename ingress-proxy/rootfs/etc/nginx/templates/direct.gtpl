@@ -5,11 +5,18 @@ server {
 index index.html;
 
     location / {
-        root /www/;
+        error_page 418 = @sabnzb;
+        error_page 419 = @sonarr;
+        error_page 420 = @radarr;
+        if ( $query_string = "service=sabnzbd" ) { return 418; }
+        if ( $query_string = "service=sonarr" ) { return 419; }
+        if ( $query_string = "service=radarr" ) { return 420; }
+
+        root /www/
     }
 
 
-    location /{{ .dest_sabnzbd_part }}/ {
+    location @sabnzb {
         absolute_redirect off;
 
         proxy_set_header Host $host;
@@ -24,7 +31,7 @@ index index.html;
         sub_filter_once off;
     }
 
-        location /{{ .dest_radarr_part }}/ {
+        location @radarr {
             absolute_redirect off;
 
             proxy_set_header Host $host;
@@ -39,7 +46,7 @@ index index.html;
             sub_filter_once off;
         }
 
-            location /{{ .dest_sonarr_part }}/ {
+            location  @sonarr {
                 absolute_redirect off;
 
                 proxy_set_header Host $host;
