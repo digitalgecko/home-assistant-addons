@@ -5,7 +5,7 @@ server {
 index index.html;
 
     location / {
-        root /www/
+        root /www/;
     }
 
 
