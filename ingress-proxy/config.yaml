@@ -15,6 +15,16 @@ arch:
 map:
   - ssl
 options:
-  destination: "http://192.168.0.1"
+  dest_sabnzb_url: "http://192.168.0.1"
+  dest_sabnzb_part: "sabnzbd"
+  dest_radarr_url: "http://192.168.0.1"
+  dest_radarr_part: "radarr"
+  dest_sonarr_url: "http://192.168.0.1"
+  dest_sonarr_part: "sonarr"
 schema:
-  destination: str?
+  dest_sabnzb_url: str?
+  dest_sabnzb_part: str?
+  dest_radarr_url: str?
+  dest_radarr_part: str?
+  dest_sonarr_url: str?
+  dest_sonarr_part: str?
