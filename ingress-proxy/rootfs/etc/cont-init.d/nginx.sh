@@ -14,7 +14,12 @@ DESTINATION=$(bashio::config 'destination')
 bashio::log.info "Destination: ${DESTINATION}"
 
 bashio::var.json \
-    destination "$(bashio::config 'destination')" \
+    dest_sabnzbd_url "$(bashio::config 'dest_sabnzbd_url')" \
+    dest_sabnzbd_part "$(bashio::config 'dest_sabnzbd_part')" \
+    dest_radarr_url "$(bashio::config 'dest_radarr_url')" \
+    dest_radarr_part "$(bashio::config 'dest_radarr_part')" \
+    dest_sonarr_url "$(bashio::config 'dest_sonarr_url')" \
+    dest_sonarr_part "$(bashio::config 'dest_sonarr_part')" \
     | tempio \
         -template /etc/nginx/templates/direct.gtpl \
         -out /etc/nginx/servers/direct.conf
